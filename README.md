@@ -1,37 +1,78 @@
-## Welcome to GitHub Pages
+# PoseNet Demos
 
-You can use the [editor on GitHub](https://github.com/cs18191918/repi02/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Contents
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Demo 1: Camera
 
-### Markdown
+The camera demo shows how to estimate poses in real-time from a webcam video stream.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<img src="https://raw.githubusercontent.com/irealva/tfjs-models/master/posenet/demos/camera.gif" alt="cameraDemo" style="width: 600px;"/>
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+### Demo 2: Coco Images
 
-- Bulleted
-- List
+The [coco images](http://cocodataset.org/#home) demo shows how to estimate poses in images. It also illustrates the differences between the single-person and multi-person pose detection algorithms.
 
-1. Numbered
-2. List
+<img src="https://raw.githubusercontent.com/irealva/tfjs-models/master/posenet/demos/coco.gif" alt="cameraDemo" style="width: 600px;"/>
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+## Setup
+
+cd into the demos folder:
+
+```sh
+cd posenet/demos
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Install dependencies and prepare the build directory:
 
-### Jekyll Themes
+```sh
+yarn
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cs18191918/repi02/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+To watch files for changes, and launch a dev server:
 
-### Support or Contact
+```sh
+yarn watch
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## If you are developing posenet locally, and want to test the changes in the demos
+
+Cd into the posenet folder:
+```sh
+cd posenet
+```
+
+Install dependencies:
+```sh
+yarn
+```
+
+Publish posenet locally:
+```sh
+yarn build && yarn yalc publish
+```
+
+Cd into the demos and install dependencies:
+
+```sh
+cd demos
+yarn
+```
+
+Link the local posenet to the demos:
+```sh
+yarn yalc link @tensorflow-models/posenet
+```
+
+Start the dev demo server:
+```sh
+yarn watch
+```
+
+To get future updates from the posenet source code:
+```
+# cd up into the posenet directory
+cd ../
+yarn build && yarn yalc push
+```
